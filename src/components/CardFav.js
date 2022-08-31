@@ -32,7 +32,7 @@ class CardFav extends Component {
         return (
             <>
                 <Container fluid>
-                    <h1 className="my-3 mt-5 text-center">{this.props.data}</h1>
+                    <h1 className="my-3 mt-5 text-center">{this.props.titleList}</h1>
                     <Row md={4}>
                         {this.state.film.map((data, index) => {
                             return (

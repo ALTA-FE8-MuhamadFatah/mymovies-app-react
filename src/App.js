@@ -5,29 +5,12 @@ import Navbars from "./components/Navbars";
 
 class App extends Component {
 
-  state = {
-    film: [
-      {
-        text: "1"
-      },
-      {
-        text: "2"
-      },
-      {
-        text: "3"
-      },
-      {
-        text: "4"
-      }
-    ]
-  }
-
   render() {
     return (
       <>
         <Navbars />
-        <CardFilm data="List Now Playing" />
-        <CardFav  data="List Favorite Film" />
+        <CardFilm titleList="List Now Playing" />
+        <CardFav titleList="List Favorite Film" />
       </>
     )
   }
