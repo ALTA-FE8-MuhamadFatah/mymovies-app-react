@@ -9,7 +9,7 @@ import ScrollAnimation from "react-animate-on-scroll";
 
 // default url
 const BASEURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=`,
-    BASEIMG = "https://image.tmdb.org/t/p/original"
+    BASEIMG = "https://image.tmdb.org/t/p/w500"
 
 class CardFilm extends Component {
 
@@ -57,8 +57,7 @@ class CardFilm extends Component {
         const JUDUL = data.title;
         this.props.navigate("/detail", {
             state: {
-                id: ID,
-                judul: JUDUL
+                id: ID
             }
         })
     }
@@ -92,7 +91,6 @@ class CardFilm extends Component {
                         />
                     </div>
                     :
-
                     <Container fluid>
                         <h1 className="my-3 mt-5 text-center">{this.props.titleList}</h1>
                         <Col md={6} className="mx-auto">
@@ -104,16 +102,13 @@ class CardFilm extends Component {
                                     <ScrollAnimation animateIn="fadeInLeft">
                                         <div key={index}>
                                             <Col>
-                                                <Card style={{ width: '18rem' }} className="mb-4">
+                                                <Card style={{ width: '18rem' }} className="mb-4 shadow">
                                                     {data.backdrop_path == null ?
                                                         <Card.Img variant="top" style={{ height: "16rem" }} src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCZTwq-SBg0TtFy68nSAq-CaHzBSi_YAssBMFc4TE7dIjNTPHpSXDuX-tED9HESy8YJt4&usqp=CAU"} /> :
-                                                        <Card.Img variant="top" style={{ height: "16rem" }} src={BASEIMG + data.backdrop_path} />
+                                                        <Card.Img variant="top" style={{ height: "25rem" }} src={BASEIMG + data.backdrop_path} />
                                                     }
                                                     <Card.Body>
-                                                        <Card.Title className="text-center"> {data.title} </Card.Title>
-                                                        <Card.Text>
-                                                            <Button onClick={() => this.handleDetail(data)} className="w-100 mt-2" variant="outline-info">Detail Movies</Button>
-                                                        </Card.Text>
+                                                        <Card.Title style={{ color: "aqua", cursor: "pointer" }} onClick={() => this.handleDetail(data)} className="w-100 mt-2 text-center"> {data.title} </Card.Title>
                                                     </Card.Body>
                                                 </Card>
                                             </Col>
